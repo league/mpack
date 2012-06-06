@@ -50,6 +50,7 @@ extern int errno;
 
 int overwrite_files = 0;
 int didchat;
+char replacement_char = 'X';
 
 /* The name of the file we're writing */
 static char *output_fname = 0;
@@ -194,13 +195,13 @@ FILE *os_newtypedfile(char *fname, char *contentType, int flags, params contentP
     for (p=fname; *p; p++) {
 	if (*p == '/') {
 	    if (!strncmp(p, "/../", 4)) {
-		p[1] = p[2] = 'X';
+		p[1] = p[2] = replacement_char;
 	    }
 	    *p = '\0';
 	    (void) mkdir(fname, 0777);
 	    *p = '/';
 	}
-	else if (!isprint(*p) || strchr(BADCHARS, *p)) *p = 'X';
+	else if (!isprint(*p) || strchr(BADCHARS, *p)) *p = replacement_char;
     }
 
     if (!fname[0]) {

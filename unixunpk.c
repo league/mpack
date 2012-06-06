@@ -31,6 +31,7 @@
 
 extern int overwrite_files;
 extern int didchat;
+extern char replacement_char;
 int quiet;
 
 void usage(void);
@@ -43,7 +44,7 @@ int main(int argc, char **argv)
     FILE *file;
     int extractText = 0;
     
-    while ((opt = getopt(argc, argv, "qftC:")) != EOF) {
+    while ((opt = getopt(argc, argv, "qftr:C:")) != EOF) {
 	switch (opt) {
 	case 'f':
 	    overwrite_files = 1;
@@ -55,6 +56,11 @@ int main(int argc, char **argv)
 
 	case 't':
 	    extractText = 1;
+	    break;
+
+	case 'r':
+	    replacement_char = optarg[0];
+            printf("Replacement: '%c'\n", replacement_char);
 	    break;
 
 	case 'C':
@@ -102,7 +108,7 @@ int main(int argc, char **argv)
 
 void usage(void) {
     fprintf(stderr, "munpack version %s\n", MPACK_VERSION);
-    fprintf(stderr, "usage: munpack [-f] [-q] [-t] [-C directory] [files...]\n");
+    fprintf(stderr, "usage: munpack [-f] [-q] [-t] [-r character] [-C directory] [files...]\n");
     exit(1);
 }
 

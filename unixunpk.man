@@ -13,6 +13,10 @@ munpack \- unpack messages in MIME or split-uuencode format
 .B \-t
 ]
 [
+.B \-r
+.I character
+]
+[
 .B \-C
 .I directory
 ]
@@ -58,6 +62,11 @@ Also write the text MIME parts of multipart messages as files.  By
 default, text parts that do not have a filename parameter do not get
 unpacked.  This option effectively disables the ".desc" file feature
 for MIME messages.
+.TP
+.BI \-r " character"
+If the suggested filename contains invalid characters, they are
+replaced with this character. The default replacement character is
+"X".
 .TP
 .BI \-C " directory"
 Change the current directory to 
