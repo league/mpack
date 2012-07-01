@@ -60,7 +60,6 @@ int main(int argc, char **argv)
 
 	case 'r':
 	    replacement_char = optarg[0];
-            printf("Replacement: '%c'\n", replacement_char);
 	    break;
 
 	case 'C':
