@@ -1,6 +1,7 @@
 
 ## Customized version of `munpack`
 
+[![Build Status](https://travis-ci.org/league/mpack.svg?branch=master)](https://travis-ci.org/league/mpack)
 
 When the attachment's suggested filename has spaces or other
 undesirable characters, munpack replaces them with `'X'`.
