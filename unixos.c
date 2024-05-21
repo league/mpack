@@ -150,10 +150,10 @@ FILE *os_createnewfile(char *fname)
 	fd=open(fname, O_RDWR);
     }
     else {
-	fd=open(fname, O_RDWR|O_CREAT|O_EXCL, 0644);
+	fd=open(fname, O_RDWR|O_CREAT|O_EXCL, 0600);
     }
 #else
-    fd=open(fname, O_RDWR|O_CREAT|O_TRUNC, 0644);
+    fd=open(fname, O_RDWR|O_CREAT|O_TRUNC, 0600);
 #endif
 
     if (fd == -1)
